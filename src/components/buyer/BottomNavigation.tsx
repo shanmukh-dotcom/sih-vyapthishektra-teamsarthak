@@ -10,7 +10,7 @@ export default function BottomNavigation() {
   const navItems = [
     { name: 'Home', path: '/buyer', icon: <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /> },
     { name: 'Matches', path: '/buyer/matches', icon: <circle cx="12" cy="12" r="10" /> },
-    { name: 'Create', path: '/buyer/requirements/create', icon: <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /> },
+    { name: 'Create', path: '/buyer/requirements/create', icon: <><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></> },
     { name: 'Orders', path: '/buyer/orders', icon: <rect x="3" y="4" width="18" height="18" rx="2" ry="2" /> },
     { name: 'Profile', path: '/buyer/settings', icon: <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /> },
   ];
