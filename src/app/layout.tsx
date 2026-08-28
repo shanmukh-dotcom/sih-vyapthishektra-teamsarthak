@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description: "One field. One network. A fairer market.",
 };
 
+import LanguageProvider from "@/components/LanguageProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -22,6 +24,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} font-sans antialiased bg-[var(--color-background)] text-[var(--color-text-primary)]`}
       >
+        <LanguageProvider />
         {children}
       </body>
     </html>

@@ -66,16 +66,13 @@ export default function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean, setIsO
                  key={item.name} 
                  href={item.path}
                  onClick={() => setIsOpen(false)}
-                 className={`flex items-center gap-4 px-4 py-3.5 rounded-xl transition-colors ${
+                 className={`flex items-center px-5 py-4 rounded-xl transition-colors ${
                    isActive 
-                     ? 'bg-[#F3F9F6] text-[var(--color-brand-green-dark)] font-extrabold shadow-sm border border-[var(--color-brand-green)]/10' 
-                     : 'text-gray-700 hover:bg-gray-50 font-bold'
+                     ? 'bg-[#F3F9F6] text-[var(--color-brand-green-dark)] font-black shadow-sm border border-[var(--color-brand-green)]/10' 
+                     : 'text-gray-700 hover:bg-gray-50 font-extrabold'
                  }`}
                >
-                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={isActive ? "2.5" : "2"} strokeLinecap="round" strokeLinejoin="round" className={isActive ? "text-[var(--color-brand-green-dark)]" : "text-gray-400"}>
-                   {item.icon}
-                 </svg>
-                 <span className="text-[15px] tracking-tight">{item.name}</span>
+                 <span className="text-[16px] tracking-tight">{item.name}</span>
                </Link>
              );
            })}
