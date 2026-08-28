@@ -56,7 +56,7 @@ export default function BiddingNegotiation() {
                   <div className="text-sm font-extrabold text-gray-900">12,000 kg • Tomato (Grade A)</div>
                </div>
                <div>
-                  <div className="text-xs font-bold text-gray-500">Supplier's Initial Offer</div>
+                  <div className="text-xs font-bold text-gray-500">Supplier&apos;s Initial Offer</div>
                   <div className="text-sm font-extrabold text-gray-900">₹{match.offeredPrice.toFixed(2)} / kg</div>
                </div>
                <div>

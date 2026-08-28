@@ -14,7 +14,7 @@ export default function BuyerDashboard() {
     <div className="p-4 md:p-8 max-w-5xl mx-auto space-y-6">
       <header className="mb-6">
         <h1 className="text-2xl font-extrabold text-gray-900 tracking-tight">Good morning, {buyerInfo.name.split(' ')[0]} 👋</h1>
-        <p className="text-gray-500 font-medium mt-1">Here is what's happening with your procurement today.</p>
+        <p className="text-gray-500 font-medium mt-1">Here is what&apos;s happening with your procurement today.</p>
       </header>
 
       {/* Action Cards */}
