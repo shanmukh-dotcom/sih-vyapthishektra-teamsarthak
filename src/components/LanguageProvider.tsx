@@ -24,7 +24,9 @@ export default function LanguageProvider() {
         script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
         document.head.appendChild(script);
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (window as any).googleTranslateElementInit = function() {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           new (window as any).google.translate.TranslateElement({
             pageLanguage: 'en',
             autoDisplay: false

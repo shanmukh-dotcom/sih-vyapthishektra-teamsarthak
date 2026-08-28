@@ -293,6 +293,7 @@ export default function LogisticsAndPickup() {
                        <span className="text-[10px] font-medium text-gray-500 truncate">To: {item.buyer}</span>
                     </div>
                     <div className="flex items-baseline gap-1 mr-auto md:mr-0">
+                       <p className="text-[var(--color-text-secondary)] text-sm">Today&apos;s Dispatch</p>
                        <span className="text-sm font-extrabold text-gray-900">{item.price}</span>
                        <span className="text-[10px] font-bold text-gray-500">/kg</span>
                     </div>
