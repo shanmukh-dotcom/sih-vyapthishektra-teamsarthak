@@ -1,16 +1,24 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import AppHeader from '@/components/farmer/AppHeader';
 import BottomNavigation from '@/components/farmer/BottomNavigation';
 import Sidebar from '@/components/farmer/Sidebar';
+import DesktopTopNav from '@/components/farmer/DesktopTopNav';
 
 export default function FarmerLayout({ children }: { children: React.ReactNode }) {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
-    <div className="relative min-h-screen w-full bg-[#FDFDFB] font-sans text-gray-900 flex">
-      {/* Desktop Sidebar */}
-      <Sidebar />
+    <div className="relative min-h-screen w-full bg-[#FDFDFB] font-sans text-gray-900 flex flex-col">
+      {/* Desktop Top Navigation (Contains Hamburger) */}
+      <DesktopTopNav onMenuClick={() => setIsSidebarOpen(true)} />
+      
+      {/* Collapsible Sidebar */}
+      <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
       
       <div className="flex-1 flex flex-col min-h-screen relative max-w-full overflow-x-hidden">
-        {/* Header - Make it sticky on mobile, hidden on desktop if you prefer, but I'll keep it for now */}
+        {/* Mobile Header (Hidden on Desktop) */}
         <div className="md:hidden">
           <AppHeader />
         </div>
