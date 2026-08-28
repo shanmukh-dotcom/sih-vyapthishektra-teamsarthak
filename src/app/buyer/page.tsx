@@ -48,7 +48,7 @@ export default function BuyerDashboard() {
            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
          </div>
          <div>
-           <h3 className="font-extrabold text-[var(--color-brand-green-dark)]">Vyapti AI says</h3>
+           <h3 className="font-extrabold text-[var(--color-brand-green-dark)]">Vyapti Kshetra KSHETRA Shektra SHEKTRA SHEKTRA AI says</h3>
            <p className="text-sm font-medium text-gray-700 mt-1 leading-relaxed">
              Tomato (Grade A) prices in your region have dropped by 4% in the last 48 hours. This is an optimal time to procure your 12,000 kg requirement.
            </p>
@@ -100,3 +100,5 @@ export default function BuyerDashboard() {
     </div>
   );
 }
+
+

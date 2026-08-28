@@ -19,7 +19,7 @@ export default function TopNav({ onMenuClick }: { onMenuClick: () => void }) {
            <div className="w-8 h-8 bg-[var(--color-brand-green-dark)] rounded text-white flex items-center justify-center font-bold text-lg">
               V
            </div>
-           <span className="text-xl font-extrabold text-[var(--color-brand-green-dark)] tracking-tight">VYAPTI</span>
+           <span className="text-xl font-extrabold text-[var(--color-brand-green-dark)] tracking-tight">VYAPTI KSHETRA Kshetra Kshetra KSHETRA Shektra SHEKTRA</span>
         </div>
       </div>
 
@@ -53,3 +53,6 @@ export default function TopNav({ onMenuClick }: { onMenuClick: () => void }) {
     </div>
   );
 }
+
+
+

@@ -131,7 +131,7 @@ export default function CreateRequirement() {
             <div className="bg-[#F3F9F6] border border-[var(--color-brand-green)]/20 rounded-xl p-4 flex gap-3">
                <div className="text-[var(--color-brand-green-dark)] mt-0.5">✨</div>
                <p className="text-sm font-medium text-gray-700">
-                 <strong className="font-bold text-[var(--color-brand-green-dark)]">Vyapti AI</strong> will prioritize FPOs and collectives within a 300km radius based on these preferences to minimize logistics overhead.
+                 <strong className="font-bold text-[var(--color-brand-green-dark)]">Vyapti Kshetra KSHETRA Shektra SHEKTRA SHEKTRA AI</strong> will prioritize FPOs and collectives within a 300km radius based on these preferences to minimize logistics overhead.
                </p>
             </div>
           </div>
@@ -160,3 +160,5 @@ export default function CreateRequirement() {
     </div>
   );
 }
+
+

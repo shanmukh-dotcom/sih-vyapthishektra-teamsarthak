@@ -101,7 +101,7 @@ export default function Payments() {
                   <div className="p-3 border border-gray-200 rounded-xl flex justify-between items-center hover:bg-gray-50 cursor-pointer">
                      <div className="flex items-center gap-3">
                         <div className="w-8 h-6 bg-gray-200 rounded"></div>
-                        <span className="font-bold text-gray-700 text-sm">Vyapti Escrow Wallet</span>
+                        <span className="font-bold text-gray-700 text-sm">Vyapti Kshetra KSHETRA Shektra SHEKTRA Escrow Wallet</span>
                      </div>
                   </div>
                   <button className="w-full py-2.5 border-2 border-dashed border-gray-300 text-gray-500 font-bold rounded-xl hover:bg-gray-50 transition-colors text-sm">
@@ -114,3 +114,5 @@ export default function Payments() {
     </div>
   );
 }
+
+

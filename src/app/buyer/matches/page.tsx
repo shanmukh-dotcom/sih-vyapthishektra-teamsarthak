@@ -88,7 +88,7 @@ export default function SupplyMatches() {
             {/* AI Insight */}
             <div className="mt-4 pt-4 border-t border-gray-100 flex gap-2 items-start">
                <span className="text-[var(--color-brand-green-dark)] mt-0.5">✨</span>
-               <p className="text-sm font-medium text-gray-600"><strong className="text-gray-900 font-bold">Vyapti AI:</strong> {match.aiRecommendation}</p>
+               <p className="text-sm font-medium text-gray-600"><strong className="text-gray-900 font-bold">Vyapti Kshetra KSHETRA Shektra SHEKTRA SHEKTRA AI:</strong> {match.aiRecommendation}</p>
             </div>
           </div>
         ))}
@@ -103,3 +103,5 @@ export default function SupplyMatches() {
     </div>
   );
 }
+
+
