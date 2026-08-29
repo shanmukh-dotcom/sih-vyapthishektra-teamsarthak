@@ -79,14 +79,15 @@ export default function CompareSuppliers() {
 
       <div className="bg-[#F3F9F6] border border-[var(--color-brand-green)]/20 rounded-2xl p-5 mt-6">
          <h3 className="font-extrabold text-[var(--color-brand-green-dark)] flex items-center gap-2 mb-2">
-           <span>✨</span> Vyapti Kshetra KSHETRA Shektra SHEKTRA SHEKTRA AI Recommendation
+           <span>✨</span> Vyapti Kshetra AI Recommendation
          </h3>
          <p className="text-sm font-medium text-gray-700 leading-relaxed">
-           <strong>{matches[0].supplier.name}</strong> provides the optimal balance of price, guaranteed quantity, and logistics support. While <strong>{matches[1].supplier.name}</strong> is slightly cheaper, their transit distance adds logistics risk for perishables.
+           <strong>Green Fields FPC</strong> offers the best combination of price, quality, and reliability for your requirement.
          </p>
       </div>
     </div>
   );
 }
+
 
 

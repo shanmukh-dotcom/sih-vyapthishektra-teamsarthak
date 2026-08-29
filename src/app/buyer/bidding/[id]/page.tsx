@@ -12,14 +12,14 @@ export default function BiddingNegotiation() {
   
   const [bidPrice, setBidPrice] = useState(match.offeredPrice.toString());
   const [messages, setMessages] = useState([
-    { sender: 'supplier', text: `Hello, we can supply 12,000 kg of Grade A Tomato at ₹${match.offeredPrice}/kg.`, time: '10:00 AM' }
+    { sender: 'supplier', text: `We can maintain this price for 27 May delivery. Let us know if you need any adjustments.`, time: '10:00 AM' }
   ]);
   const [isAccepted, setIsAccepted] = useState(false);
 
   const handleCounter = () => {
-    setMessages([...messages, { sender: 'buyer', text: `I am offering ₹${bidPrice}/kg for the full quantity.`, time: 'Just now' }]);
+    setMessages([...messages, { sender: 'buyer', text: `Can you do ₹21.20/kg for confirmed order today? We can make the payment in 5 days.`, time: 'Just now' }]);
     setTimeout(() => {
-      setMessages(prev => [...prev, { sender: 'supplier', text: `We can accept ₹${bidPrice}/kg if payment terms remain the same. Deal?`, time: 'Just now' }]);
+      setMessages(prev => [...prev, { sender: 'supplier', text: `We can accept ₹21.20/kg if payment is made in 5 days. Deal?`, time: 'Just now' }]);
     }, 1500);
   };
 

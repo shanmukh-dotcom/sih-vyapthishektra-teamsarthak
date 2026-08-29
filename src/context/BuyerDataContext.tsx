@@ -59,6 +59,12 @@ type BuyerContextType = {
     name: string;
     location: string;
     accountType: string;
+    email: string;
+    phone: string;
+    accountId: string;
+    memberSince: string;
+    address: string;
+    bank: string;
   };
   requirements: Requirement[];
   addRequirement: (req: Requirement) => void;
@@ -72,7 +78,13 @@ const defaultContext: BuyerContextType = {
   buyerInfo: {
     name: "Meera Business Pvt. Ltd.",
     location: "Hyderabad, Telangana",
-    accountType: "Corporate Buyer",
+    accountType: "Buyer Account",
+    email: "buyer@meerabusiness.com",
+    phone: "+91 98765 43210",
+    accountId: "MBP-2025-0001",
+    memberSince: "15 Apr 2025",
+    address: "Plot No. 45, Industrial Area, Uppal\nHyderabad, Telangana - 500039\nIndia",
+    bank: "HDFC Bank",
   },
   requirements: [],
   addRequirement: () => {},
@@ -92,101 +104,185 @@ export function BuyerDataProvider({ children }: { children: React.ReactNode }) {
       grade: "Grade A",
       quantity: 12000,
       unit: "kg",
-      requiredBy: "2026-09-05",
+      requiredBy: "28 May 2025",
       status: "Active"
     }
   ]);
 
   const [matches] = useState<Match[]>([
     {
-      id: "LOT-T01-GREEN",
+      id: "GFPC-TOM-270525-01",
       supplier: {
         id: "SUP-001",
         name: "Green Fields Farmers Producer Company",
         type: "FPO",
-        location: "Kurnool, AP",
-        distance: 214,
-        rating: 4.8,
-        reviews: 124,
+        location: "Rangareddy, Telangana",
+        distance: 45,
+        rating: 5,
+        reviews: 128,
         reliability: "High",
-        certifications: ["Organic", "FSSAI"],
+        certifications: ["Verified"],
         logisticsSupport: true,
       },
       commodity: "Tomato",
       grade: "Grade A",
-      availableQuantity: 15000,
+      availableQuantity: 12500,
       offeredPrice: 21.50,
       matchScore: 94,
-      qualityScore: 92,
-      expectedDelivery: "2 Days",
-      paymentTerms: "30% Advance, 70% on Delivery",
+      qualityScore: 94, // represented as 9.4/10
+      expectedDelivery: "27 May 2025",
+      paymentTerms: "7 Days",
       savings: 12,
-      aiRecommendation: "Highest match score based on your price preference and their strong delivery track record to Hyderabad."
+      aiRecommendation: "Green Fields FPC offers the best combination of price, quality, and reliability for your requirement."
     },
     {
-      id: "LOT-T02-SAHYADRI",
+      id: "SOC-TOM-280525-02",
       supplier: {
         id: "SUP-002",
         name: "Sahyadri Organic Collective",
-        type: "Collective",
-        location: "Pune, MH",
-        distance: 512,
-        rating: 4.9,
-        reviews: 310,
+        type: "FPO",
+        location: "Nalgonda, Telangana",
+        distance: 78,
+        rating: 5,
+        reviews: 96,
         reliability: "Very High",
-        certifications: ["Organic", "GlobalG.A.P", "FSSAI"],
+        certifications: ["Organic"],
         logisticsSupport: true,
       },
       commodity: "Tomato",
       grade: "Grade A",
-      availableQuantity: 24000,
-      offeredPrice: 21.00,
-      matchScore: 88,
-      qualityScore: 96,
-      expectedDelivery: "3-4 Days",
+      availableQuantity: 12000,
+      offeredPrice: 22.30,
+      matchScore: 89,
+      qualityScore: 91, // 9.1/10
+      expectedDelivery: "28 May 2025",
       paymentTerms: "Net 15 Days",
       savings: 14,
-      aiRecommendation: "Excellent quality and lowest price, but longer transit time compared to Green Fields."
+      aiRecommendation: "Excellent quality and organic certified, but slightly higher price and longer distance."
     },
     {
-      id: "LOT-T03-VIKRAM",
+      id: "VAPG-TOM-280525-03",
       supplier: {
         id: "SUP-003",
         name: "Vikram Agro Producers Group",
         type: "FPO",
-        location: "Medak, TS",
-        distance: 85,
+        location: "Medchal, Telangana",
+        distance: 60,
         rating: 4.5,
-        reviews: 42,
+        reviews: 72,
         reliability: "Medium",
-        certifications: ["FSSAI"],
+        certifications: ["Verified"],
         logisticsSupport: false,
       },
       commodity: "Tomato",
       grade: "Grade A",
-      availableQuantity: 10000, // Not enough for full order!
-      offeredPrice: 22.00,
-      matchScore: 76,
-      qualityScore: 85,
-      expectedDelivery: "1 Day (Self Pickup)",
+      availableQuantity: 13000,
+      offeredPrice: 22.80,
+      matchScore: 85,
+      qualityScore: 88, // 8.8/10
+      expectedDelivery: "28 May 2025",
       paymentTerms: "100% Advance",
       savings: 8,
-      aiRecommendation: "Closest proximity, but requires self-arranged logistics and partial quantity fulfillment."
+      aiRecommendation: "Good quantity available but lacks logistics support and requires advance payment."
     }
   ]);
 
   const [orders, setOrders] = useState<Order[]>([
     {
-      id: "ORD-VY-8890",
-      matchId: "LOT-T01-GREEN", // Simulated previous order
+      id: "VK-ORD-2025-045",
+      matchId: "GFPC-TOM-270525-01",
       supplier: matches[0].supplier,
-      commodity: "Tomato",
+      commodity: "Tomato (Grade A)",
+      quantity: 12000,
+      price: 21.50,
+      totalAmount: 258000,
+      status: "In Progress",
+      deliveryStatus: "In Transit",
+      date: "27 May 2025"
+    },
+    {
+      id: "VK-ORD-2025-044",
+      matchId: "SOC-TOM-280525-02",
+      supplier: matches[1].supplier,
+      commodity: "Onion",
+      quantity: 8000,
+      price: 18.00,
+      totalAmount: 144000,
+      status: "In Progress",
+      deliveryStatus: "Packed & Dispatched",
+      date: "26 May 2025"
+    },
+    {
+      id: "VK-ORD-2025-043",
+      matchId: "VAPG-TOM-280525-03",
+      supplier: matches[2].supplier,
+      commodity: "Potato",
       quantity: 5000,
-      price: 22.00,
-      totalAmount: 110000,
+      price: 15.00,
+      totalAmount: 75000,
+      status: "In Progress",
+      deliveryStatus: "Order Confirmed",
+      date: "25 May 2025"
+    },
+    {
+      id: "VK-ORD-2025-032",
+      matchId: "SOC-TOM-280525-02",
+      supplier: matches[1].supplier,
+      commodity: "Onion",
+      quantity: 10000,
+      price: 17.50,
+      totalAmount: 175000,
       status: "Delivered",
       deliveryStatus: "Delivered",
-      date: "2026-08-15"
+      date: "15 May 2025"
+    },
+    {
+      id: "VK-ORD-2025-030",
+      matchId: "GFPC-TOM-270525-01",
+      supplier: matches[0].supplier,
+      commodity: "Tomato (Grade A)",
+      quantity: 12000,
+      price: 22.00,
+      totalAmount: 264000,
+      status: "Delivered",
+      deliveryStatus: "Delivered",
+      date: "10 May 2025"
+    },
+    {
+      id: "VK-ORD-2025-028",
+      matchId: "VAPG-TOM-280525-03",
+      supplier: matches[2].supplier,
+      commodity: "Potato",
+      quantity: 15000,
+      price: 14.50,
+      totalAmount: 217500,
+      status: "Delivered",
+      deliveryStatus: "Delivered",
+      date: "05 May 2025"
+    },
+    {
+      id: "VK-ORD-2025-025",
+      matchId: "GFPC-TOM-270525-01",
+      supplier: matches[0].supplier,
+      commodity: "Tomato (Grade B)",
+      quantity: 8000,
+      price: 18.00,
+      totalAmount: 144000,
+      status: "Delivered",
+      deliveryStatus: "Delivered",
+      date: "01 May 2025"
+    },
+    {
+      id: "VK-ORD-2025-046",
+      matchId: "VAPG-TOM-280525-03",
+      supplier: matches[2].supplier,
+      commodity: "Carrot",
+      quantity: 2000,
+      price: 30.00,
+      totalAmount: 60000,
+      status: "Pending",
+      deliveryStatus: "Order Confirmed",
+      date: "28 May 2025"
     }
   ]);
 
@@ -199,7 +295,7 @@ export function BuyerDataProvider({ children }: { children: React.ReactNode }) {
     if (!match) return;
 
     const newOrder: Order = {
-      id: `ORD-VY-${Math.floor(1000 + Math.random() * 9000)}`,
+      id: `VK-ORD-2025-${Math.floor(100 + Math.random() * 900)}`,
       matchId: match.id,
       supplier: match.supplier,
       commodity: match.commodity,
@@ -208,7 +304,7 @@ export function BuyerDataProvider({ children }: { children: React.ReactNode }) {
       totalAmount: 12000 * (customPrice || match.offeredPrice),
       status: "In Progress",
       deliveryStatus: "Order Confirmed",
-      date: new Date().toISOString().split('T')[0]
+      date: "28 May 2025"
     };
 
     setOrders(prev => [newOrder, ...prev]);

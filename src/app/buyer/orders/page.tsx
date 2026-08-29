@@ -23,7 +23,7 @@ export default function Orders() {
       </header>
 
       {/* Metrics */}
-      <div className="grid grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-4 gap-4 mb-8">
         <div className="bg-white border border-gray-200 p-5 rounded-2xl shadow-sm">
           <div className="text-xs font-bold text-gray-500 uppercase tracking-wide">Total Orders</div>
           <div className="text-3xl font-black text-gray-900 mt-2">{orders.length}</div>
@@ -35,6 +35,10 @@ export default function Orders() {
         <div className="bg-white border border-gray-200 p-5 rounded-2xl shadow-sm">
           <div className="text-xs font-bold text-gray-500 uppercase tracking-wide">Delivered</div>
           <div className="text-3xl font-black text-green-500 mt-2">{orders.filter(o => o.status === 'Delivered').length}</div>
+        </div>
+        <div className="bg-white border border-gray-200 p-5 rounded-2xl shadow-sm">
+          <div className="text-xs font-bold text-gray-500 uppercase tracking-wide">Pending</div>
+          <div className="text-3xl font-black text-blue-500 mt-2">{orders.filter(o => o.status === 'Pending').length}</div>
         </div>
       </div>
 

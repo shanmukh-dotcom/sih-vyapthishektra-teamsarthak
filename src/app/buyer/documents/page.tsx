@@ -40,41 +40,30 @@ export default function Documents() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
-              {orders.map((order) => (
-                <React.Fragment key={order.id}>
-                  <tr className="hover:bg-gray-50/50 transition-colors">
-                    <td className="px-6 py-4">
-                      <div className="flex items-center gap-3">
-                         <div className="w-8 h-8 bg-red-100 text-red-600 rounded flex items-center justify-center font-black text-xs">PDF</div>
-                         <div className="font-extrabold text-gray-900">Invoice_{order.id}.pdf</div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 text-sm font-bold text-gray-600">{order.supplier.name}</td>
-                    <td className="px-6 py-4 text-sm font-bold text-gray-500">{order.date}</td>
-                    <td className="px-6 py-4">
-                      <button className="text-[var(--color-brand-green-dark)] font-bold text-sm hover:underline">Download</button>
-                    </td>
-                  </tr>
-                  <tr className="hover:bg-gray-50/50 transition-colors">
-                    <td className="px-6 py-4">
-                      <div className="flex items-center gap-3">
-                         <div className="w-8 h-8 bg-blue-100 text-blue-600 rounded flex items-center justify-center font-black text-xs">DOC</div>
-                         <div className="font-extrabold text-gray-900">Quality_Report_{order.matchId}.pdf</div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 text-sm font-bold text-gray-600">{order.commodity} Lot</td>
-                    <td className="px-6 py-4 text-sm font-bold text-gray-500">{order.date}</td>
-                    <td className="px-6 py-4">
-                      <button className="text-[var(--color-brand-green-dark)] font-bold text-sm hover:underline">View</button>
-                    </td>
-                  </tr>
-                </React.Fragment>
-              ))}
-              {orders.length === 0 && (
-                <tr>
-                  <td colSpan={4} className="px-6 py-12 text-center text-gray-500 font-medium">No documents generated yet.</td>
+              {[
+                { name: 'Invoice_VK-ORD-2025-045.pdf', related: 'Green Fields Farmers', date: '27 May 2025', type: 'PDF', color: 'red' },
+                { name: 'QC_Report_Tomato_045.xlsx', related: 'Tomato Lot', date: '27 May 2025', type: 'XLSX', color: 'green' },
+                { name: 'EwayBill_TS11AB1234.pdf', related: 'SafeMove Logistics', date: '27 May 2025', type: 'PDF', color: 'red' },
+                { name: 'Contract_Sahyadri_2025.pdf', related: 'Sahyadri Organic', date: '26 May 2025', type: 'PDF', color: 'red' },
+                { name: 'Invoice_VK-ORD-2025-032.pdf', related: 'Sahyadri Organic', date: '15 May 2025', type: 'PDF', color: 'red' },
+                { name: 'QC_Report_Onion_032.xlsx', related: 'Onion Lot', date: '15 May 2025', type: 'XLSX', color: 'green' },
+                { name: 'EwayBill_TS12XY5678.pdf', related: 'FastTrack Transports', date: '15 May 2025', type: 'PDF', color: 'red' },
+                { name: 'Payment_Receipt_2025-05.pdf', related: 'HDFC Bank', date: '15 May 2025', type: 'PDF', color: 'red' },
+              ].map((doc, i) => (
+                <tr key={i} className="hover:bg-gray-50/50 transition-colors">
+                  <td className="px-6 py-4">
+                    <div className="flex items-center gap-3">
+                       <div className={`w-8 h-8 bg-${doc.color}-100 text-${doc.color}-600 rounded flex items-center justify-center font-black text-xs`}>{doc.type}</div>
+                       <div className="font-extrabold text-gray-900">{doc.name}</div>
+                    </div>
+                  </td>
+                  <td className="px-6 py-4 text-sm font-bold text-gray-600">{doc.related}</td>
+                  <td className="px-6 py-4 text-sm font-bold text-gray-500">{doc.date}</td>
+                  <td className="px-6 py-4">
+                    <button className="text-[var(--color-brand-green-dark)] font-bold text-sm hover:underline">Download</button>
+                  </td>
                 </tr>
-              )}
+              ))}
             </tbody>
           </table>
         </div>

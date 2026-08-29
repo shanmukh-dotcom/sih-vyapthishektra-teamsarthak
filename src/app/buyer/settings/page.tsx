@@ -15,6 +15,7 @@ export default function Settings() {
       <div className="flex flex-col md:flex-row gap-8">
          {/* Settings Nav */}
          <div className="w-full md:w-64 space-y-1">
+            <button className="w-full text-left px-4 py-3 text-gray-700 font-bold hover:bg-gray-50 rounded-xl">Account</button>
             <button className="w-full text-left px-4 py-3 bg-[#F3F9F6] text-[var(--color-brand-green-dark)] font-black rounded-xl">Business Profile</button>
             <button className="w-full text-left px-4 py-3 text-gray-700 font-bold hover:bg-gray-50 rounded-xl">Notifications</button>
             <button className="w-full text-left px-4 py-3 text-gray-700 font-bold hover:bg-gray-50 rounded-xl">Security</button>
@@ -24,46 +25,99 @@ export default function Settings() {
          {/* Settings Content */}
          <div className="flex-1 space-y-6">
             <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-               <h2 className="font-extrabold text-lg text-gray-900 mb-4 border-b border-gray-100 pb-3">Business Profile</h2>
+               <h2 className="font-extrabold text-lg text-gray-900 mb-4 border-b border-gray-100 pb-3">Account & Business Profile</h2>
                
                <div className="space-y-4">
                   <div className="flex items-center gap-4 mb-6">
-                     <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center text-4xl shadow-sm border border-gray-200">
-                        🏢
+                     <div className="w-20 h-20 bg-[var(--color-brand-green)]/20 rounded-full flex items-center justify-center text-4xl text-[var(--color-brand-green-dark)] shadow-sm border border-[var(--color-brand-green)]/30">
+                        MB
                      </div>
-                     <button className="px-4 py-2 bg-gray-100 text-gray-800 font-bold rounded-lg hover:bg-gray-200 text-sm transition-colors">Change Logo</button>
+                     <div>
+                       <h3 className="font-black text-gray-900 text-lg">{buyerInfo.name}</h3>
+                       <p className="font-bold text-gray-500 text-sm">{buyerInfo.accountType}</p>
+                       <p className="font-medium text-gray-400 text-xs mt-1">Account ID: {buyerInfo.accountId} • Member Since: {buyerInfo.memberSince}</p>
+                     </div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
                      <div>
-                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Company Name</label>
-                        <input type="text" defaultValue={buyerInfo.name} className="w-full p-3 border border-gray-300 rounded-xl bg-gray-50 font-bold text-gray-900" />
+                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Email</label>
+                        <input type="text" defaultValue={buyerInfo.email} className="w-full p-3 border border-gray-300 rounded-xl bg-gray-50 font-bold text-gray-900" />
                      </div>
                      <div>
-                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Account Type</label>
-                        <input type="text" defaultValue={buyerInfo.accountType} disabled className="w-full p-3 border border-gray-200 rounded-xl bg-gray-100 font-bold text-gray-500" />
+                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Phone</label>
+                        <input type="text" defaultValue={buyerInfo.phone} className="w-full p-3 border border-gray-300 rounded-xl bg-gray-50 font-bold text-gray-900" />
                      </div>
                   </div>
 
                   <div>
-                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Registered Address</label>
-                     <textarea defaultValue={buyerInfo.location} className="w-full p-3 border border-gray-300 rounded-xl bg-gray-50 font-bold text-gray-900" rows={2}></textarea>
+                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Business Address</label>
+                     <textarea defaultValue={buyerInfo.address} className="w-full p-3 border border-gray-300 rounded-xl bg-gray-50 font-bold text-gray-900" rows={3}></textarea>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
                      <div>
-                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">GSTIN</label>
-                        <input type="text" defaultValue="36AAACV1234F1Z5" className="w-full p-3 border border-gray-300 rounded-xl bg-gray-50 font-bold text-gray-900" />
-                     </div>
-                     <div>
-                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">FSSAI License</label>
-                        <input type="text" defaultValue="13612345000123" className="w-full p-3 border border-gray-300 rounded-xl bg-gray-50 font-bold text-gray-900" />
+                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Bank</label>
+                        <input type="text" defaultValue={buyerInfo.bank} className="w-full p-3 border border-gray-300 rounded-xl bg-gray-50 font-bold text-gray-900" />
                      </div>
                   </div>
                </div>
+            </div>
 
-               <div className="mt-6 pt-4 border-t border-gray-100 text-right">
-                  <button className="px-6 py-2.5 bg-[var(--color-brand-green-dark)] text-white font-bold rounded-xl shadow-sm hover:opacity-90">Save Changes</button>
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+               <h2 className="font-extrabold text-lg text-gray-900 mb-4 border-b border-gray-100 pb-3">Preferences</h2>
+               <div className="grid grid-cols-2 gap-4">
+                 <div>
+                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Language</label>
+                    <select className="w-full p-3 border border-gray-300 rounded-xl bg-gray-50 font-bold text-gray-900"><option>English</option></select>
+                 </div>
+                 <div>
+                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Currency</label>
+                    <select className="w-full p-3 border border-gray-300 rounded-xl bg-gray-50 font-bold text-gray-900"><option>INR (₹)</option></select>
+                 </div>
+                 <div>
+                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Date Format</label>
+                    <select className="w-full p-3 border border-gray-300 rounded-xl bg-gray-50 font-bold text-gray-900"><option>DD MMM YYYY</option></select>
+                 </div>
+                 <div>
+                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Time Zone</label>
+                    <select className="w-full p-3 border border-gray-300 rounded-xl bg-gray-50 font-bold text-gray-900"><option>IST / Asia/Kolkata</option></select>
+                 </div>
+                 <div>
+                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Unit System</label>
+                    <select className="w-full p-3 border border-gray-300 rounded-xl bg-gray-50 font-bold text-gray-900"><option>Metric</option></select>
+                 </div>
+                 <div>
+                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Theme</label>
+                    <select className="w-full p-3 border border-gray-300 rounded-xl bg-gray-50 font-bold text-gray-900"><option>Light</option></select>
+                 </div>
+               </div>
+            </div>
+
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+               <h2 className="font-extrabold text-lg text-gray-900 mb-4 border-b border-gray-100 pb-3">Security</h2>
+               <div className="space-y-4">
+                 <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                    <div>
+                      <div className="font-extrabold text-gray-900">Password</div>
+                      <div className="text-xs font-medium text-gray-500">Last changed 3 months ago</div>
+                    </div>
+                    <button className="px-4 py-2 bg-gray-100 text-gray-800 font-bold rounded-lg text-sm">Change Password</button>
+                 </div>
+                 <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                    <div>
+                      <div className="font-extrabold text-gray-900">Two-Factor Authentication</div>
+                      <div className="text-xs font-medium text-gray-500">Protect your account with an extra layer of security.</div>
+                    </div>
+                    <div className="w-12 h-6 bg-[var(--color-brand-green)] rounded-full relative cursor-pointer"><div className="w-4 h-4 bg-white rounded-full absolute right-1 top-1"></div></div>
+                 </div>
+                 <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                    <div>
+                      <div className="font-extrabold text-gray-900">Active Sessions</div>
+                      <div className="text-xs font-medium text-gray-500">Manage devices logged into your account.</div>
+                    </div>
+                    <button className="px-4 py-2 bg-gray-100 text-gray-800 font-bold rounded-lg text-sm">View Devices</button>
+                 </div>
                </div>
             </div>
 

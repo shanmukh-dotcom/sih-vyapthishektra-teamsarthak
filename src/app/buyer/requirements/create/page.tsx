@@ -13,10 +13,13 @@ export default function CreateRequirement() {
     grade: 'Grade A',
     quantity: '12000',
     unit: 'kg',
-    requiredBy: '2026-09-05',
+    requiredBy: '2025-05-28',
+    flexibility: '± 2 days',
+    locallySourced: true,
     organic: false,
-    directFromFarmer: true,
-    pricePreference: 'Market Avg'
+    residueFree: false,
+    directFromFarmer: false,
+    pricePreference: 'Balanced'
   });
 
   const handleSubmit = () => {
@@ -63,20 +66,19 @@ export default function CreateRequirement() {
           <div className="space-y-5">
             <h2 className="font-extrabold text-xl text-gray-900 border-b border-gray-100 pb-3">Requirement Details</h2>
             
-            <div>
-              <label className="block text-sm font-bold text-gray-700 mb-2">Commodity</label>
-              <select 
-                value={formData.commodity}
-                onChange={e => setFormData({...formData, commodity: e.target.value})}
-                className="w-full p-3 border border-gray-300 rounded-xl bg-gray-50 focus:ring-2 focus:ring-green-500 font-medium"
-              >
-                <option>Tomato</option>
-                <option>Potato</option>
-                <option>Onion</option>
-              </select>
-            </div>
-
             <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2">Commodity</label>
+                <select 
+                  value={formData.commodity}
+                  onChange={e => setFormData({...formData, commodity: e.target.value})}
+                  className="w-full p-3 border border-gray-300 rounded-xl bg-gray-50 focus:ring-2 focus:ring-green-500 font-medium"
+                >
+                  <option>Tomato</option>
+                  <option>Potato</option>
+                  <option>Onion</option>
+                </select>
+              </div>
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-2">Grade / Quality</label>
                 <select 
@@ -89,50 +91,82 @@ export default function CreateRequirement() {
                   <option>Processing Grade</option>
                 </select>
               </div>
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2">Quantity Needed (kg)</label>
-                <input 
-                  type="number" 
-                  value={formData.quantity}
-                  onChange={e => setFormData({...formData, quantity: e.target.value})}
-                  className="w-full p-3 border border-gray-300 rounded-xl bg-gray-50 focus:ring-2 focus:ring-green-500 font-medium" 
-                />
-              </div>
             </div>
 
-            <div>
-              <label className="block text-sm font-bold text-gray-700 mb-2">Required By</label>
-              <input 
-                type="date" 
-                value={formData.requiredBy}
-                onChange={e => setFormData({...formData, requiredBy: e.target.value})}
-                className="w-full p-3 border border-gray-300 rounded-xl bg-gray-50 focus:ring-2 focus:ring-green-500 font-medium" 
-              />
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2">Quantity</label>
+                <div className="flex gap-2">
+                   <input 
+                     type="number" 
+                     value={formData.quantity}
+                     onChange={e => setFormData({...formData, quantity: e.target.value})}
+                     className="w-full p-3 border border-gray-300 rounded-xl bg-gray-50 focus:ring-2 focus:ring-green-500 font-medium" 
+                   />
+                   <select 
+                     value={formData.unit}
+                     onChange={e => setFormData({...formData, unit: e.target.value})}
+                     className="w-24 p-3 border border-gray-300 rounded-xl bg-gray-50 focus:ring-2 focus:ring-green-500 font-medium"
+                   >
+                     <option>kg</option>
+                     <option>tons</option>
+                   </select>
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2">Required By</label>
+                <div className="flex gap-2">
+                   <input 
+                     type="date" 
+                     value={formData.requiredBy}
+                     onChange={e => setFormData({...formData, requiredBy: e.target.value})}
+                     className="w-full p-3 border border-gray-300 rounded-xl bg-gray-50 focus:ring-2 focus:ring-green-500 font-medium" 
+                   />
+                   <select 
+                     value={formData.flexibility}
+                     onChange={e => setFormData({...formData, flexibility: e.target.value})}
+                     className="w-32 p-3 border border-gray-300 rounded-xl bg-gray-50 focus:ring-2 focus:ring-green-500 font-medium text-sm"
+                   >
+                     <option>± 2 days</option>
+                     <option>Strictly on</option>
+                   </select>
+                </div>
+              </div>
             </div>
           </div>
         )}
 
         {step === 2 && (
           <div className="space-y-5">
-            <h2 className="font-extrabold text-xl text-gray-900 border-b border-gray-100 pb-3">Sourcing Preferences</h2>
+            <h2 className="font-extrabold text-xl text-gray-900 border-b border-gray-100 pb-3">Preferences</h2>
             
-            <div className="space-y-3">
-              <label className="flex items-center gap-3 p-4 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50">
-                <input type="checkbox" checked={formData.organic} onChange={e => setFormData({...formData, organic: e.target.checked})} className="w-5 h-5 accent-[var(--color-brand-green-dark)]" />
-                <span className="font-bold text-gray-700">Must be Organic / Residue-Free</span>
-              </label>
-              <label className="flex items-center gap-3 p-4 border border-[var(--color-brand-green-dark)] bg-[#F3F9F6] rounded-xl cursor-pointer">
-                <input type="checkbox" checked={formData.directFromFarmer} onChange={e => setFormData({...formData, directFromFarmer: e.target.checked})} className="w-5 h-5 accent-[var(--color-brand-green-dark)]" />
-                <span className="font-bold text-[var(--color-brand-green-dark)]">Direct from Farmer / FPO</span>
-              </label>
+            <div className="mb-6">
+               <label className="block text-sm font-bold text-gray-700 mb-3">Price Preference</label>
+               <div className="flex p-1 bg-gray-100 rounded-xl">
+                  <button className="flex-1 py-2 text-sm font-bold text-gray-500 rounded-lg hover:bg-gray-200">Lowest Price</button>
+                  <button className="flex-1 py-2 text-sm font-extrabold bg-white text-gray-900 rounded-lg shadow-sm">Balanced</button>
+                  <button className="flex-1 py-2 text-sm font-bold text-gray-500 rounded-lg hover:bg-gray-200">Premium Quality</button>
+               </div>
             </div>
-            
-            {/* AI Explanation */}
-            <div className="bg-[#F3F9F6] border border-[var(--color-brand-green)]/20 rounded-xl p-4 flex gap-3">
-               <div className="text-[var(--color-brand-green-dark)] mt-0.5">✨</div>
-               <p className="text-sm font-medium text-gray-700">
-                 <strong className="font-bold text-[var(--color-brand-green-dark)]">Vyapti Kshetra KSHETRA Shektra SHEKTRA SHEKTRA AI</strong> will prioritize FPOs and collectives within a 300km radius based on these preferences to minimize logistics overhead.
-               </p>
+
+            <label className="block text-sm font-bold text-gray-700 mb-3">Sourcing</label>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+               <label className={`flex items-center gap-3 p-3 border rounded-xl cursor-pointer transition-colors ${formData.locallySourced ? 'border-[var(--color-brand-green)] bg-[#F3F9F6]' : 'border-gray-200 hover:bg-gray-50'}`}>
+                  <input type="checkbox" checked={formData.locallySourced} onChange={e => setFormData({...formData, locallySourced: e.target.checked})} className="w-5 h-5 accent-[var(--color-brand-green-dark)]" />
+                  <span className={`font-bold text-sm ${formData.locallySourced ? 'text-[var(--color-brand-green-dark)]' : 'text-gray-700'}`}>Locally Sourced</span>
+               </label>
+               <label className={`flex items-center gap-3 p-3 border rounded-xl cursor-pointer transition-colors ${formData.organic ? 'border-[var(--color-brand-green)] bg-[#F3F9F6]' : 'border-gray-200 hover:bg-gray-50'}`}>
+                  <input type="checkbox" checked={formData.organic} onChange={e => setFormData({...formData, organic: e.target.checked})} className="w-5 h-5 accent-[var(--color-brand-green-dark)]" />
+                  <span className={`font-bold text-sm ${formData.organic ? 'text-[var(--color-brand-green-dark)]' : 'text-gray-700'}`}>Organic</span>
+               </label>
+               <label className={`flex items-center gap-3 p-3 border rounded-xl cursor-pointer transition-colors ${formData.residueFree ? 'border-[var(--color-brand-green)] bg-[#F3F9F6]' : 'border-gray-200 hover:bg-gray-50'}`}>
+                  <input type="checkbox" checked={formData.residueFree} onChange={e => setFormData({...formData, residueFree: e.target.checked})} className="w-5 h-5 accent-[var(--color-brand-green-dark)]" />
+                  <span className={`font-bold text-sm ${formData.residueFree ? 'text-[var(--color-brand-green-dark)]' : 'text-gray-700'}`}>Residue-Free</span>
+               </label>
+               <label className={`flex items-center gap-3 p-3 border rounded-xl cursor-pointer transition-colors ${formData.directFromFarmer ? 'border-[var(--color-brand-green)] bg-[#F3F9F6]' : 'border-gray-200 hover:bg-gray-50'}`}>
+                  <input type="checkbox" checked={formData.directFromFarmer} onChange={e => setFormData({...formData, directFromFarmer: e.target.checked})} className="w-5 h-5 accent-[var(--color-brand-green-dark)]" />
+                  <span className={`font-bold text-sm ${formData.directFromFarmer ? 'text-[var(--color-brand-green-dark)]' : 'text-gray-700'}`}>Direct from Farmer</span>
+               </label>
             </div>
           </div>
         )}

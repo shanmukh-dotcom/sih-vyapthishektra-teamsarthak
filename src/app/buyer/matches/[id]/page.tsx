@@ -98,16 +98,16 @@ export default function LotDetails() {
                      <span>₹{(match.offeredPrice * 12000).toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between text-sm font-medium text-gray-600">
-                     <span>Est. Logistics</span>
-                     <span>₹4,500</span>
+                     <span>Packing & Handling (₹0.80/kg)</span>
+                     <span>₹{(0.80 * 12000).toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between text-sm font-medium text-gray-600">
-                     <span>Platform Fee (1%)</span>
-                     <span>₹{(match.offeredPrice * 120).toLocaleString()}</span>
+                     <span>Logistics (₹1.20/kg)</span>
+                     <span>₹{(1.20 * 12000).toLocaleString()}</span>
                   </div>
                   <div className="pt-3 border-t border-gray-100 flex justify-between">
                      <span className="font-extrabold text-gray-900">Total Est. Landed</span>
-                     <span className="font-black text-gray-900 text-lg">₹{((match.offeredPrice * 12000) + 4500 + (match.offeredPrice * 120)).toLocaleString()}</span>
+                     <span className="font-black text-gray-900 text-lg">₹{((match.offeredPrice + 0.80 + 1.20) * 12000).toLocaleString()}</span>
                   </div>
                </div>
 
