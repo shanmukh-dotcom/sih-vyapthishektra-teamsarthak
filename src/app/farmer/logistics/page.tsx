@@ -18,7 +18,7 @@ export default function LogisticsAndPickup() {
               <circle cx="18.5" cy="18.5" r="2.5"></circle>
             </svg>
           </h1>
-          <p className="text-sm font-medium text-gray-600 mt-1">We'll pick up your produce and deliver it on time</p>
+          <p className="text-sm font-medium text-gray-600 mt-1">We&apos;ll pick up your produce and deliver it on time</p>
         </div>
         
         <button className="flex items-center gap-2 bg-white border border-gray-200 shadow-sm rounded-xl px-4 py-2 hover:bg-gray-50 transition-colors">
