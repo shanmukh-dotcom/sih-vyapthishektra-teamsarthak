@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -6,17 +6,17 @@ import Image from 'next/image';
 import Logo from '@/components/Logo';
 
 const languages = [
+  { id: 'en', native: 'English', name: 'English' },
   { id: 'te', native: 'తెలుగు', name: 'Telugu' },
-  { id: 'hi', native: 'हिंदी', name: 'Hindi' },
   { id: 'kn', native: 'ಕನ್ನಡ', name: 'Kannada' },
+  { id: 'hi', native: 'हिंदी', name: 'Hindi' },
   { id: 'ta', native: 'தமிழ்', name: 'Tamil' },
   { id: 'mr', native: 'मराठी', name: 'Marathi' },
   { id: 'bn', native: 'বাংলা', name: 'Bengali' },
-  { id: 'en', native: 'English', name: 'English' },
 ];
 
 export default function LanguageSelection() {
-  const [selectedLang, setSelectedLang] = useState('te');
+  const [selectedLang, setSelectedLang] = useState('en');
   const router = useRouter();
 
   const handleContinue = () => {
@@ -142,3 +142,5 @@ export default function LanguageSelection() {
     </div>
   );
 }
+
+
