@@ -6,7 +6,7 @@
   <h1>🌾 Vyapti Kshetra</h1>
   <p><strong>Empowering Farmers. Streamlining Procurement. Eliminating Middlemen.</strong></p>
   <p>
-    <a href="https://vyapti-kshetra-app.vercel.app/"><strong>View Live Demo</strong></a>
+    <a href="https://sih-vyapthishektra-teamsarthak-ut6i.vercel.app/"><strong>View Live Demo</strong></a>
     ·
     <a href="#-the-problem">Problem</a>
     ·
